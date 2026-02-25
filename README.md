@@ -7,4 +7,4 @@ docker run cantliei 10
 ```
 would wait for 10 seconds and then exit.
 
-This project is named after the [Heliophorus cantliei](https://species.wikimedia.org/wiki/Heliophorus_cantliei)) butterfly.
+This project is named after the [Heliophorus cantliei](https://species.wikimedia.org/wiki/Heliophorus_cantliei) butterfly.
