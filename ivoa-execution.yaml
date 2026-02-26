@@ -1,0 +1,11 @@
+#
+# A simple Docker container that waits for a number of seconds and then exits.
+name: cantliei-test
+executable:
+  type: https://www.purl.org/ivoa.net/EB/schema/types/executable/docker-container-1.0
+  image:
+    locations:
+      - "ghcr.io/zarquan/heliophorus-cantliei:"
+    digest: ""
+  # A single parameter, the number of seconds to wait.
+  command: "<duration>"
