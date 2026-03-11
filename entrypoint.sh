@@ -2,7 +2,9 @@
 set -e
 
 if [ -z "$1" ]; then
-    echo "Usage: docker run cantliei <seconds>"
+    echo "Usage: cantliei <seconds> [exit-code]"
+    echo "  seconds   - number of seconds to wait"
+    echo "  exit-code - exit code to return (default: 0)"
     exit 1
 fi
 
@@ -13,6 +15,16 @@ case "$1" in
         ;;
 esac
 
+exitcode="${2:-0}"
+
+case "$exitcode" in
+    ''|*[!0-9]*)
+        echo "Error: '$exitcode' is not a valid exit code"
+        exit 1
+        ;;
+esac
+
 echo "Waiting for $1 seconds ..."
 sleep "$1"
-echo "Done."
+echo "Exiting with code $exitcode"
+exit "$exitcode"

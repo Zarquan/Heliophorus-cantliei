@@ -1,24 +1,33 @@
 # Heliophorus-cantliei
-A docker container that simply waits for a number of seconds and then exits.
+A container that waits for a number of seconds and then exits with a configurable exit code.
 
 This project is named after the [Heliophorus cantliei](https://species.wikimedia.org/wiki/Heliophorus_cantliei) butterfly.
 
 ## Build
 
 ```
-docker build -t cantliei .
+podman build -t cantliei .
 ```
 
 ## Usage
 
 ```
-docker run cantliei <seconds>
+podman run cantliei <seconds> [exit-code]
 ```
 
-For example:
+- `seconds` - number of seconds to wait
+- `exit-code` - exit code to return (default: `0`)
+
+### Examples
+
+Wait 10 seconds and exit successfully:
 
 ```
-docker run cantliei 10
+podman run cantliei 10
 ```
 
-would wait for 10 seconds and then exit.
+Wait 5 seconds and exit with code 1 (simulating a failure):
+
+```
+podman run cantliei 5 1
+```
