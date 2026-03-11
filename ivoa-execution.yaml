@@ -3,11 +3,12 @@ name: cantliei-test
 executable:
   type: https://www.purl.org/ivoa.net/EB/schema/types/executable/docker-container-1.0
   description: >-
-    A simple Docker container that waits for a number of seconds and then exits.
+    A simple container that waits for a number of seconds and then exits with a configurable exit code.
     https://github.com/Zarquan/Heliophorus-cantliei
   image:
     locations:
       - "ghcr.io/zarquan/heliophorus-cantliei:sha-c9572b0"
     digest: "sha256:4911760109f78976d2a95a6491a8d8c77bfee9fd1498b9a4b7dd5b7515826689"
-  # A single parameter, the number of seconds to wait.
-  command: "<seconds>"
+  # First parameter: the number of seconds to wait.
+  # Second parameter: the exit code to return (default: 0).
+  command: "<seconds> <exit-code>"
